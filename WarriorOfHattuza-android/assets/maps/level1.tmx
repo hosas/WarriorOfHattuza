@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" width="100" height="25" tilewidth="96" tileheight="96">
+ <tileset firstgid="1" name="Ground" tilewidth="96" tileheight="96">
+  <image source="../../../../Users/Karolis/Desktop/extendedgroundtiles.png" width="384" height="384"/>
+ </tileset>
+ <tileset firstgid="17" name="Tree" tilewidth="96" tileheight="96">
+  <image source="../../../../Users/Karolis/Desktop/treetileset.png" width="480" height="480"/>
+ </tileset>
+ <tileset firstgid="42" name="aok" tilewidth="96" tileheight="96">
+  <image source="../../../../Users/Karolis/Desktop/aok.png" width="288" height="288"/>
+ </tileset>
+ <tileset firstgid="51" name="pinetree" tilewidth="96" tileheight="96">
+  <image source="../../../../Users/Karolis/Desktop/pinetree.png" width="288" height="288"/>
+ </tileset>
+ <tileset firstgid="60" name="bush1" tilewidth="96" tileheight="96">
+  <image source="../../../../Users/Karolis/Desktop/kruums6.png" width="192" height="192"/>
+ </tileset>
+ <tileset firstgid="64" name="bush2" tilewidth="96" tileheight="96">
+  <image source="../../../../Users/Karolis/Desktop/krums5.png" width="192" height="192"/>
+ </tileset>
+ <tileset firstgid="68" name="bush3" tilewidth="96" tileheight="96">
+  <image source="../../../../Users/Karolis/Desktop/krums4.png" width="192" height="192"/>
+ </tileset>
+ <tileset firstgid="72" name="deadTree1" tilewidth="96" tileheight="96">
+  <image source="../../../../Users/Karolis/Desktop/medis2.png" width="576" height="576"/>
+ </tileset>
+ <tileset firstgid="108" name="deadTree2" tilewidth="96" tileheight="96">
+  <image source="../../../../Users/Karolis/Desktop/medis3.png" width="576" height="576"/>
+ </tileset>
+ <tileset firstgid="144" name="deadTree3" tilewidth="96" tileheight="96">
+  <image source="../../../../Users/Karolis/Desktop/medis4.png" width="576" height="576"/>
+ </tileset>
+ <layer name="Tile Layer 1" width="100" height="25">
+  <data encoding="base64" compression="zlib">
+   eJztl80OwiAQhFGj1ujB939a7Y2Q/YFl6UI6XzKnpi3dYXZpSgAAAAAAAICzcCUE4vj+tWX6xC4HVEBlCDmK48EIxFD2tLKvcfmJyNAs64iE8itqFml7BwDAc+Y+ljNLT8/7GdXHpPlzEa7vujms76j5t8p/jjR/7ok/a+56Dn7/bERnzOqHlCuPTEmMrFdPxjxqYvVDus8jUxKz/jN61ETz451ov18O77aizcsjoLLgURPND4tG+9GKdF6x9tjWunH7usXTkX5o5zrPudS75tYszKaavWD5nto9Vqr32SvVfgX9AIY7Cn8=
+  </data>
+ </layer>
+ <layer name="topTress" width="100" height="25">
+  <data encoding="base64" compression="zlib">
+   eJzt2FVOBEEUheFeDxqCwx5w18FdggULFixYcHd33SD/Ajo9Xd13qGG6TvK9Vd+5ST3UyViWiYmJiYmJiYmJyf9IHvJRgEIUoVjrRsFOCUpRhnJUoFLrRsFOFapRg1rUoV7rRsFOCA1oRBOa0aJzoQhnE1vYxg52sScwtxs96EUf+j3OaUUb2tGBTnQJ7Bet2ccBDnGEY5wIzB3AIIYwjBGBmUHIKc5wjgtc4kpg7ijGMI4JTArMDEKucYNb3OEeDzbnVHvnFKYxg1nMiW0c23nEE57xgle82ZxT7Z3zWMAilrAst3JM5x0f+MQXvvFjc061d65gFWtYx4bcyiZW5HunVB8LSsL1Tqfe7ObtUe1juu4vFWlI/6Pf8xqn3uzm7VHtY7r6dAYykaXwjY47dOrNbt4e1T6mq09nIwe5Ct94uUO/cerNISv826Pax6T7dBzikeBzjl283KHfOPVmN/95qPYx6T6diCQk+5wTLXHbm6USiT6dIjDDxCTa8wvWHX7+
+  </data>
+ </layer>
+ <layer name="trees" width="100" height="25">
+  <data encoding="base64" compression="zlib">
+   eJzt2OVKBFEYgOG5BbsD/wh2d4yKejMWFhYWFhZ2d3feoC+Lq6usw55JWL8Xnl8z5+zHDuwcVtMkSZIkSZLCLx0NXg8hfdWIJq+HkCTJlYpRglKvB5F8laEcFQ7tL89brUpUodrE2ghEIgrRiAlyj9PPW/ouFnGIRwISg9wjz8P9UpCKtCDX5PfQ/TIMrll5HlnIRo5D+4drmQbXrLyfcpGHfIf2t6NQ3qHhUgGKHNp7BatYwzo2sPl5rVlhn1DeoXanMp/dFRpca0M7OtCJLoV9t7CNHexiD/toQavCPklIRrrCGiupzme2GtQqrulGD3rRh36FtQc4xBGOcYJTxc8PzOhMo5qZ78Lu6lCvuGYAgxjCMEYU1p7hHBe4xBWuFT8/MP+ZRtes/99s5rsIzI4ZzDSKMYxjApMG9+razxlvcIs73OMBjxZm8Z9p/vq/2c1zuVf/eU9hGjOYxZzBvb9nfMIzXvCKN7w7M6av/3Aun8cCFrGEZW/HMczrc7kkud0HWvw7mQ==
+  </data>
+ </layer>
+ <layer name="topdeadtrees" width="100" height="25">
+  <data encoding="base64" compression="zlib">
+   eJzt19VuwzAYQOG9wphB26RJY8Z3GDMzvsyYmRlfcKfazTbVjd04TaT8R/ruEteSm9hJSpIkSZIkSZIkSZKk2CUjBalIQ7pPY0g/ZSATWchGjk9jSH8rDsgYNutEF7rRg170+Toj53KRhyKfx3DTOjawiS1sYwf9GMAghjCMEZ/maFo+Sn8pQGEcYzjd14BGNGmMp3vtLvawjwMc4gijGMM4JjCJKY3fDUI23jVlGtc0owWtFq89xglOcYZzXGAaM5jFHOaxoPG7QSjy3y5JwO+0oR0dFq+9xBWucYNb3GERS1jGClaxFtesE5/NvbgcFai0OGas7vGARzzhGS8G96v2Hz/7/65x801RhWrU2JmaY694wzs+8Ikvg/tV+49TiVxHN98UtajzYlIeFW3/0XnG411HNwXtm8KLou0/Os+46hzhZWFYj2j7T+QZr3e4T3WOMDnTmxaG9VDtP07vXNU5wuRMb5rON0VYU62jyZleksLeNxS+W9I=
+  </data>
+ </layer>
+</map>
