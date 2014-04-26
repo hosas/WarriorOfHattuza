@@ -1,20 +1,24 @@
 package com.SkyControl.WarriorOfHattuza.Screens;
 
+import com.SkyControl.WarriorOfHattuza.Entities.MinionRank1;
+import com.SkyControl.WarriorOfHattuza.Entities.MinionRank2;
 import com.SkyControl.WarriorOfHattuza.Entities.Player;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input.Keys;
-import com.badlogic.gdx.InputProcessor;
 import com.badlogic.gdx.Screen;
+import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.graphics.g2d.Sprite;
+import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.maps.tiled.TiledMap;
 import com.badlogic.gdx.maps.tiled.TiledMapTileLayer;
 import com.badlogic.gdx.maps.tiled.TmxMapLoader;
 import com.badlogic.gdx.maps.tiled.renderers.OrthogonalTiledMapRenderer;
 
-public class GameScreen implements Screen, InputProcessor{
+public class GameScreen implements Screen{
 
 	private TiledMap map;
 	private OrthogonalTiledMapRenderer renderer;
@@ -23,7 +27,12 @@ public class GameScreen implements Screen, InputProcessor{
 	private OrthographicCamera playercam;
 	private Texture bacground;
 	private Player player;
+	private MinionRank1 rank1;
+	private MinionRank2 rank2;
 	private boolean IsTouched = false;
+	private TextureAtlas PlayerAtlas;
+	private Sound walk;
+	Animation right, left;
 	
 	@Override
 	public void render(float delta) {
@@ -31,7 +40,6 @@ public class GameScreen implements Screen, InputProcessor{
 		Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 		renderer.setView(BGcamera);
 		update();
-		move();
 		renderer.getSpriteBatch().begin();
 		renderer.getSpriteBatch().draw(bacground, 0, 0);
 		renderer.getSpriteBatch().end();
@@ -43,6 +51,8 @@ public class GameScreen implements Screen, InputProcessor{
 		//renderer.setView(playercam);
 		renderer.getSpriteBatch().begin();
 		player.draw(renderer.getSpriteBatch());
+		rank1.draw(renderer.getSpriteBatch());
+		rank2.draw(renderer.getSpriteBatch());
 		renderer.getSpriteBatch().end();
 		
 	}
@@ -69,14 +79,24 @@ public class GameScreen implements Screen, InputProcessor{
 		TmxMapLoader loader = new TmxMapLoader();
 		map = loader.load("maps/level1.tmx");
 			Gdx.app.debug("nu", "uzloadino" + map.getLayers().getCount());
-		renderer = new OrthogonalTiledMapRenderer(map, 1/2f);
+		renderer = new OrthogonalTiledMapRenderer(map);
 		camera = new OrthographicCamera();
 		BGcamera = new OrthographicCamera();
 		playercam = new OrthographicCamera();
 		bacground = new Texture(Gdx.files.internal("maps/background.png"));
-		Gdx.input.setInputProcessor(this);
-		player = new Player(new Sprite(new Texture(Gdx.files.internal("entities/sonas1.png"))), (TiledMapTileLayer) map.getLayers().get(0));
-		player.setPosition(50, 96);
+		PlayerAtlas = new TextureAtlas("entities/Player.pack");
+		right = new Animation(1/20f, PlayerAtlas.findRegions("right"));
+		left = new Animation(1/20f, PlayerAtlas.findRegions("left"));
+		right.setPlayMode(Animation.LOOP);
+		left.setPlayMode(Animation.LOOP);
+		walk = Gdx.audio.newSound(Gdx.files.internal("entities/zingsnis.wav"));
+		player = new Player(left, right, walk, (TiledMapTileLayer) map.getLayers().get("collision"));
+		rank1 = new MinionRank1(new Sprite(new Texture(Gdx.files.internal("entities/MRsonas.png"))), (TiledMapTileLayer) map.getLayers().get("collision"));
+		rank2 = new MinionRank2(new Sprite(new Texture(Gdx.files.internal("entities/MR2sonas.png"))), (TiledMapTileLayer) map.getLayers().get("collision"));
+		player.setPosition(500, 400);
+		rank1.setPosition(200, 400);
+		rank2.setPosition(800, 400);
+		Gdx.input.setInputProcessor(player);
 	}
 
 	@Override
@@ -103,6 +123,8 @@ public class GameScreen implements Screen, InputProcessor{
 		renderer.dispose();
 		bacground.dispose();
 		player.getTexture().dispose();
+		PlayerAtlas.dispose();
+		walk.dispose();
 	}
 	
 	void update()
@@ -121,58 +143,7 @@ public class GameScreen implements Screen, InputProcessor{
 			
 	}
 	
-	void move()
-	{
-		if(IsTouched)
-			player.MovePlayer();
-	}
 
-	@Override
-	public boolean keyDown(int keycode) {
-		
-		return false;
-	}
-
-	@Override
-	public boolean keyUp(int keycode) {
-		
-		return false;
-	}
-
-	@Override
-	public boolean keyTyped(char character) {
-		
-		return false;
-	}
-
-	@Override
-	public boolean touchDown(int screenX, int screenY, int pointer, int button) {
-		IsTouched = true;
-		return false;
-	}
-
-	@Override
-	public boolean touchUp(int screenX, int screenY, int pointer, int button) {
-		IsTouched = false;
-		return false;
-	}
-
-	@Override
-	public boolean touchDragged(int screenX, int screenY, int pointer) {
-		// TODO Auto-generated method stub
-		return false;
-	}
-
-	@Override
-	public boolean mouseMoved(int screenX, int screenY) {
-		// TODO Auto-generated method stub
-		return false;
-	}
-
-	@Override
-	public boolean scrolled(int amount) {
-		// TODO Auto-generated method stub
-		return false;
-	}
+	
 
 }

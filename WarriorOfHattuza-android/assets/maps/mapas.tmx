@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" width="10" height="10" tilewidth="96" tileheight="96">
+ <tileset firstgid="1" name="collisions" tilewidth="96" tileheight="96">
+  <image source="collisions.png" width="192" height="96"/>
+  <tile id="1">
+   <properties>
+    <property name="blocked" value=""/>
+   </properties>
+  </tile>
+ </tileset>
+ <layer name="Tile Layer 1" width="10" height="10">
+  <data encoding="base64" compression="zlib">
+   eJxjZGBgYBzFVMFMSBifHD4MAFIUAHI=
+  </data>
+ </layer>
+</map>
